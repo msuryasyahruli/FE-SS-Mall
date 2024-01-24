@@ -1,6 +1,7 @@
 import React from 'react'
 import Dropdown from './Dropdown'
 import Cart from './Cart'
+import History from './History'
 
 const Navbar = () => {
     return (
@@ -23,13 +24,14 @@ const Navbar = () => {
                         <div>
                             <img src={require('../../assets/image/search.png')} alt="search" />
                         </div>
-                        <Cart/>
                         <div>
-                            <img src={require('../../assets/image/profile.png')} alt="profile" />
+                            <Cart />
+                        </div>
+                        <div>
+                            <History />
                         </div>
                     </div>
                 </div>
-
             </div>
         </>
     )
