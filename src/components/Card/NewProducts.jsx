@@ -1,8 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { BsStarFill } from 'react-icons/bs'
 
 const NewProducts = () => {
     const [products, setProducts] = useState([])
+    const newProducts = products.slice(0, 3)
+    console.log(newProducts)
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_KEY}/product`)
@@ -17,42 +20,23 @@ const NewProducts = () => {
     return (
         <>
             <div className='container mx-auto grid grid-cols-3 gap-8 my-6'>
-                <div className='rounded-2xl shadow-md overflow-hidden col-span-1 flex'>
-                    <div className='h-44 aspect-square'>
-                        <img src={require('../../assets/image/product1.png')} alt="products" className='h-full' />
-                    </div>
-                    <div className='p-3 w-full h-full flex flex-col justify-between'>
-                        <p className='text-xl font-medium'>Headphone</p>
-                        <div>
-                            <p className='text-2xl font-medium'>$199</p>
-                            <button className='bg-[#40BFFF] rounded-md text-white h-6 w-full text-center'>Add to cart</button>
+                {newProducts.map((item, index) => (
+                    <div key={index} className='rounded-2xl shadow-md overflow-hidden col-span-1 flex'>
+                        <div className='h-44 aspect-square'>
+                            <img src={item.product_image} alt="products" className='h-full' />
+                        </div>
+                        <div className='p-3 w-full h-full flex flex-col justify-between'>
+                            <div>
+                                <p className='text-xl font-medium'>{item.product_name}</p>
+                                <div className='flex items-center'><BsStarFill className='text-yellow-300 me-1' /><p>4.5/5</p></div>
+                            </div>
+                            <div>
+                                <p className='text-2xl font-medium'>${item.product_price}</p>
+                                <button className='bg-[#40BFFF] rounded-md text-white h-6 w-full text-center'>Add to cart</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className='rounded-2xl shadow-md overflow-hidden col-span-1 flex'>
-                    <div className='h-44 aspect-square'>
-                        <img src={require('../../assets/image/product1.png')} alt="products" className='h-full' />
-                    </div>
-                    <div className='p-3 w-full h-full flex flex-col justify-between'>
-                        <p className='text-xl font-medium'>Headphone</p>
-                        <div>
-                            <p className='text-2xl font-medium'>$199</p>
-                            <button className='bg-[#40BFFF] rounded-md text-white h-6 w-full text-center'>Add to cart</button>
-                        </div>
-                    </div>
-                </div>
-                <div className='rounded-2xl shadow-md overflow-hidden col-span-1 flex'>
-                    <div className='h-44 aspect-square'>
-                        <img src={require('../../assets/image/product1.png')} alt="products" className='h-full' />
-                    </div>
-                    <div className='p-3 w-full h-full flex flex-col justify-between'>
-                        <p className='text-xl font-medium'>Headphone</p>
-                        <div>
-                            <p className='text-2xl font-medium'>$199</p>
-                            <button className='bg-[#40BFFF] rounded-md text-white h-6 w-full text-center'>Add to cart</button>
-                        </div>
-                    </div>
-                </div>
+                ))}
             </div>
         </>
     )

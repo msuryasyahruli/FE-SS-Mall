@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { BsStarFill } from 'react-icons/bs'
 
 const Products = () => {
     const [products, setProducts] = useState([])
@@ -41,7 +42,10 @@ const Products = () => {
                                 <img src={item.product_image} alt="products" className='w-full' />
                             </div>
                             <div className='p-3 h-44 flex flex-col justify-between'>
-                                <p className='text-xl font-medium'>{item.product_name}</p>
+                                <div>
+                                    <p className='text-xl font-medium'>{item.product_name}</p>
+                                    <div className='flex items-center'><BsStarFill className='text-yellow-300 me-1' /><p>4.5/5</p></div>
+                                </div>
                                 <div>
                                     <p className='text-2xl font-medium'>${item.product_price}</p>
                                     <button type='submit' className='bg-[#40BFFF] rounded-md text-white h-6 w-full text-center'>Add to cart</button>
