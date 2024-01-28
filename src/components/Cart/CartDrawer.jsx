@@ -4,12 +4,13 @@ import { BsTrash3 } from "react-icons/bs";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
+import Checkout from './Checkout';
 
 const style = {
     position: 'absolute',
     top: '0',
     right: '0',
-    width: "36%",
+    width: "33%",
     height: "100%",
     bgcolor: 'background.paper',
     boxShadow: 24,
@@ -63,12 +64,16 @@ const CartDrawer = () => {
                     aria-describedby="modal-modal-description"
                 >
                     <Box sx={style}>
-                        <div>
-                            <div className='flex justify-between p-4 border-b items-center'>
-                                <p className='text-4xl font-medium'>My Cart</p>
-                            </div>
-                            <div className='overflow-auto'>
-                                {cart.map((item, index) => (
+                        <div className='flex justify-between p-4 border-b items-center'>
+                            <p className='text-4xl font-medium'>My Cart</p>
+                        </div>
+                        <div className='overflow-auto h-full'>
+                            {cart.length === 0 ?
+                                <div className='justify-center items-center h-full flex text-gray-400 text-xl' >
+                                    <p>No items</p>
+                                </div>
+                                :
+                                cart.map((item, index) => (
                                     <div key={index} className='flex my-1'>
                                         <div className='h-36 aspect-square'>
                                             <img src={item.product_image} alt="products" className='h-full' />
@@ -78,12 +83,11 @@ const CartDrawer = () => {
                                                 <p className='text-xl font-medium'>{item.product_name}</p>
                                                 <button onClick={() => handleDelete(item.cart_id)}><BsTrash3 /></button>
                                             </div>
-                                            <p className='text-2xl p-2 font-medium'>{item.product_price}</p>
-                                            <button className='bg-[#EC6D62] text-white h-9 w-full text-center'>Add to cart</button>
+                                            <p className='text-2xl p-2 font-medium'>${item.product_price}</p>
+                                            <Checkout image={item.product_image} name={item.product_name} price={item.product_price} product_id={item.product_id} cart_id={item.cart_id} />
                                         </div>
                                     </div>
                                 ))}
-                            </div>
                         </div>
                     </Box>
                 </Modal>

@@ -1,12 +1,12 @@
 import React from 'react'
 import Dropdown from './Dropdown'
 import History from './History'
-import CartDrawer from './CartDrawer'
+import CartDrawer from '../Cart/CartDrawer'
 
 const Navbar = () => {
     return (
         <>
-            <div className='h-20 bg-[#40BFFF] sticky'>
+            <div className='h-20 bg-[#40BFFF] sticky top-0 shadow-md z-10'>
                 <div className='container mx-auto h-full flex items-center '>
                     <div className='flex text-white text-2xl grow'>
                         <img src={require('../../assets/image/Logo.png')} alt="logo" />

@@ -5,7 +5,8 @@ import AddCart from './addCart'
 
 const NewProducts = () => {
     const [products, setProducts] = useState([])
-    const newProducts = products.slice(0, 3)
+    const sliceProducts = products.slice(-3)
+    const newProducts = sliceProducts.reverse()
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_KEY}/product`)
@@ -22,7 +23,8 @@ const NewProducts = () => {
             <div className='container mx-auto grid grid-cols-3 gap-8 my-8'>
                 {newProducts.map((item, index) => (
                     <div key={index} className='rounded-2xl shadow-md overflow-hidden col-span-1 flex'>
-                        <div className='h-44 aspect-square'>
+                        <div className='h-44 aspect-square relative'>
+                            <p className='absolute m-2 text-red-500 border border-red-500 rounded-md px-2 right-0 font-medium'>NEW</p>
                             <img src={item.product_image} alt="products" className='h-full' />
                         </div>
                         <div className='p-3 w-full h-full flex flex-col justify-between'>
