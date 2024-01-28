@@ -61,7 +61,7 @@ const History = () => {
                                                 <p className='text-xl font-medium'>{item.product_name}</p>
                                             </div>
                                             <p className='text-2xl p-2 font-medium'>${item.product_price}</p>
-                                            <button className='bg-[#EC6D62] text-white h-9 w-full text-center'>Add to cart</button>
+                                            <button className='bg-[#EC6D62] text-white h-9 w-full text-center'>Buy again</button>
                                         </div>
                                     </div>
                                 ))}
