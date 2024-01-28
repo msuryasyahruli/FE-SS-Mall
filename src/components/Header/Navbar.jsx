@@ -1,7 +1,7 @@
 import React from 'react'
 import Dropdown from './Dropdown'
-import Cart from './Cart'
 import History from './History'
+import CartDrawer from './CartDrawer'
 
 const Navbar = () => {
     return (
@@ -13,11 +13,10 @@ const Navbar = () => {
                     </div>
                     <div>
                         <ul className='flex text-white gap-12'>
-                            <li>Home</li>
-                            {/* <li>Products</li> */}
+                            <li className='cursor-pointer'>Home</li>
                             <li><Dropdown /></li>
-                            <li>About</li>
-                            <li>Pricing</li>
+                            <li className='cursor-pointer'>About</li>
+                            <li className='cursor-pointer'>Pricing</li>
                         </ul>
                     </div>
                     <div className='flex items-center gap-6 ms-24'>
@@ -25,7 +24,7 @@ const Navbar = () => {
                             <img src={require('../../assets/image/search.png')} alt="search" />
                         </div>
                         <div>
-                            <Cart />
+                            <CartDrawer />
                         </div>
                         <div>
                             <History />

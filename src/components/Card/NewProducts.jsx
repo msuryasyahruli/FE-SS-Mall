@@ -1,11 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { BsStarFill } from 'react-icons/bs'
+import AddCart from './addCart'
 
 const NewProducts = () => {
     const [products, setProducts] = useState([])
     const newProducts = products.slice(0, 3)
-    console.log(newProducts)
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_KEY}/product`)
@@ -19,7 +19,7 @@ const NewProducts = () => {
 
     return (
         <>
-            <div className='container mx-auto grid grid-cols-3 gap-8 my-6'>
+            <div className='container mx-auto grid grid-cols-3 gap-8 my-8'>
                 {newProducts.map((item, index) => (
                     <div key={index} className='rounded-2xl shadow-md overflow-hidden col-span-1 flex'>
                         <div className='h-44 aspect-square'>
@@ -32,7 +32,9 @@ const NewProducts = () => {
                             </div>
                             <div>
                                 <p className='text-2xl font-medium'>${item.product_price}</p>
-                                <button className='bg-[#40BFFF] rounded-md text-white h-6 w-full text-center'>Add to cart</button>
+                                <AddCart product_id={item.product_id}>
+                                    <button className='bg-[#40BFFF] rounded-md text-white h-6 w-full text-center'>Add to cart</button>
+                                </AddCart>
                             </div>
                         </div>
                     </div>
