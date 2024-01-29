@@ -1,18 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
-
-const style = {
-    position: 'absolute',
-    top: '0',
-    right: '0',
-    width: "33%",
-    height: "100%",
-    bgcolor: 'background.paper',
-    boxShadow: 24,
-};
+import { BsX } from 'react-icons/bs';
 
 const History = () => {
     const [open, setOpen] = React.useState(false);
@@ -41,13 +31,14 @@ const History = () => {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <Box sx={style}>
-                        <div className='flex justify-between p-4 border-b items-center'>
+                    <div className='h-full w-[500px] sm:w-full overflow-auto right-0 absolute bg-white'>
+                        <div className='flex justify-between p-4 border-b items-center bg-white top-0 sticky'>
                             <p className='text-4xl font-medium'>My History</p>
+                            <button onClick={handleClose} className='minlg:hidden text-4xl font-bold'><BsX /></button>
                         </div>
-                        <div className='overflow-auto h-full'>
+                        <div className='bg-slate-200 min-h-full'>
                             {history.length === 0 ?
-                                <div className='justify-center items-center h-full flex text-gray-400 text-xl' >
+                                <div className='justify-center items-center flex text-gray-400 text-xl' >
                                     <p>No items</p>
                                 </div>
                                 :
@@ -66,7 +57,7 @@ const History = () => {
                                     </div>
                                 ))}
                         </div>
-                    </Box>
+                    </div>
                 </Modal>
             </div>
         </>

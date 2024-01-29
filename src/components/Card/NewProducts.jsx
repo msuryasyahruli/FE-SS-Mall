@@ -20,7 +20,7 @@ const NewProducts = () => {
 
     return (
         <>
-            <div className='container mx-auto grid grid-cols-3 gap-8 my-8'>
+            <div className='container mx-auto grid grid-cols-3 lg:grid-cols-2 sm:grid-cols-1 gap-8 lg:gap-4 sm:gap-2 lg:px-4 sm:px-3 my-8'>
                 {newProducts.map((item, index) => (
                     <div key={index} className='rounded-2xl shadow-md overflow-hidden col-span-1 flex'>
                         <div className='h-44 aspect-square relative'>

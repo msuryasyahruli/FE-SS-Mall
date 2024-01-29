@@ -18,7 +18,7 @@ const Products = () => {
 
     return (
         <>
-            <div className='container mx-auto grid grid-cols-6 gap-8 my-4'>
+            <div className='container mx-auto grid grid-cols-6 lg:grid-cols-4 sm:grid-cols-2 gap-8 lg:gap-4 sm:gap-2 lg:px-4 sm:px-3 my-4'>
                 {products.map((item, index) => (
                     <div key={index} className='rounded-2xl shadow-md overflow-hidden col-span-1'>
                         <div className='aspect-square'>

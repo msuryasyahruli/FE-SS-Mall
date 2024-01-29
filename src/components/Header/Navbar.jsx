@@ -2,12 +2,13 @@ import React from 'react'
 import Dropdown from './Dropdown'
 import History from './History'
 import CartDrawer from '../Cart/CartDrawer'
+import Burger from './Burger'
 
 const Navbar = () => {
     return (
         <>
             <div className='h-20 bg-[#40BFFF] sticky top-0 shadow-md z-10'>
-                <div className='container mx-auto h-full flex items-center '>
+                <div className='container mx-auto h-full flex items-center px-2 lg:hidden'>
                     <div className='flex text-white text-2xl grow'>
                         <img src={require('../../assets/image/Logo.png')} alt="logo" />
                     </div>
@@ -29,6 +30,14 @@ const Navbar = () => {
                         <div>
                             <History />
                         </div>
+                    </div>
+                </div>
+                <div className='container mx-auto h-full flex items-center justify-between px-4 minlg:hidden'>
+                    <div className='text-white text-2xl px-2'>
+                        <img src={require('../../assets/image/Logo.png')} alt="logo" />
+                    </div>
+                    <div className='flex items-center ms-24 gap-2'>
+                        <Burger />
                     </div>
                 </div>
             </div>

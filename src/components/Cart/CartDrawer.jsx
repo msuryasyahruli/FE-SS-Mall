@@ -1,20 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { BsTrash3 } from "react-icons/bs";
-import Box from '@mui/material/Box';
+import { BsTrash3, BsX } from "react-icons/bs";
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import Checkout from './Checkout';
-
-const style = {
-    position: 'absolute',
-    top: '0',
-    right: '0',
-    width: "33%",
-    height: "100%",
-    bgcolor: 'background.paper',
-    boxShadow: 24,
-};
 
 const CartDrawer = () => {
     const [open, setOpen] = React.useState(false);
@@ -63,13 +52,14 @@ const CartDrawer = () => {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <Box sx={style}>
-                        <div className='flex justify-between p-4 border-b items-center'>
+                    <div className='h-full w-[500px] sm:w-full overflow-auto right-0 absolute bg-white '>
+                        <div className='flex justify-between p-4 border-b items-center bg-white top-0 sticky'>
                             <p className='text-4xl font-medium'>My Cart</p>
+                            <button onClick={handleClose} className='minlg:hidden text-4xl font-bold'><BsX /></button>
                         </div>
-                        <div className='overflow-auto h-full'>
+                        <div className='bg-slate-200'>
                             {cart.length === 0 ?
-                                <div className='justify-center items-center h-full flex text-gray-400 text-xl' >
+                                <div className='justify-center items-center flex text-gray-400 text-xl' >
                                     <p>No items</p>
                                 </div>
                                 :
@@ -89,7 +79,7 @@ const CartDrawer = () => {
                                     </div>
                                 ))}
                         </div>
-                    </Box>
+                    </div>
                 </Modal>
             </div>
         </>
